@@ -4,20 +4,24 @@ import CustomButton from '../Components/buttons/CustomButton';
 import type {StatusBarStyle} from 'react-native';
 import InputEmail from '../Components/buttons/InputEmail';
 import React from 'react';
+import { Link } from 'expo-router';
 
 export default function SignInEmail() {
   return (
     <View style={styles.container}>
       <StatusBar     
         hidden={false}/>
+        
       <Text style={styles.sign}>Sign in</Text>
 
       <View style={styles.column}>
         <InputEmail/>
-        <CustomButton
-            onPress={() => console.log('Кнопка нажата')}
-            text="Sign in"
-        />
+        <Link href="/main" asChild>
+          <CustomButton
+              onPress={() => console.log('Кнопка нажата')}
+              text="Sign in"
+          />
+        </Link>
       </View>
       
       

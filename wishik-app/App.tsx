@@ -10,8 +10,8 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar     
         hidden={false}/>
-      {/* <LogIn/> */}
-      <SignInEmail/>
+      <LogIn/>
+      {/* <SignInEmail/> */}
       
     </View>
   );

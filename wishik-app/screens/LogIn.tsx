@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import CustomButton from '../Components/buttons/CustomButton';
+import { Link } from 'expo-router';
 
 const emailPic = require('../icons/email-1.png');
 const googlePic = require('../icons/google-1.png');
-const applePic = require('../icons/apple-1.png');
+const applePic = require('../icons/apple.png');
 
 export default function LogIn() {
   return (
@@ -19,11 +20,13 @@ export default function LogIn() {
         </View>
         <View style={styles.btns}>
           <View style={styles.btns_group}>
+          <Link href="/signin" asChild>
             <CustomButton
               onPress={() => console.log('Кнопка нажата')}
               iconURL={emailPic}
               text="Sign up with email"
             />
+          </Link>
             <CustomButton
             onPress={() => console.log('Кнопка нажата')}
             iconURL={googlePic}
@@ -54,7 +57,7 @@ const styles = StyleSheet.create({
     // flex: 1,
     position: 'absolute',
     top: 16,
-    right: 16,
+    alignSelf: 'center',
     fontFamily: 'Comfortaa',
     fontSize: 16,
     lineHeight: 18,
