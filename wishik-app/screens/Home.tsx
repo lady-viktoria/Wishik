@@ -39,12 +39,12 @@ const styles = StyleSheet.create({
     fontWeight: '400',
   },
   text: {
+    marginTop: 146,
+    marginHorizontal: 39,
     fontFamily: 'Comfortaa',
     fontSize: 18,
     fontWeight: '400',
     lineHeight: 20,
     textAlign: 'center',
-    marginHorizontal: 39,
-
   }
 });
