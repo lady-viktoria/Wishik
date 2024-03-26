@@ -1,21 +1,29 @@
-import React, { FC } from 'react';
-import { TouchableOpacity, Text, View, Image, StyleSheet, Pressable, ImageSourcePropType } from 'react-native';
+import React, { FC } from "react";
+import {
+  TouchableOpacity,
+  Text,
+  View,
+  Image,
+  StyleSheet,
+  Pressable,
+  ImageSourcePropType,
+} from "react-native";
 
 interface PropTypes {
-    onPress: () => void;
-    iconURL?: ImageSourcePropType;
-    active: boolean;
+  onPress: () => void;
+  iconURL?: ImageSourcePropType;
+  active: boolean;
 }
 
 const ButtonNav: FC<PropTypes> = ({ onPress, iconURL, active }) => {
   return (
     <Pressable onPress={onPress} style={styles.buttonContainer}>
       <View style={active ? styles.buttonPressed : styles.buttonContent}>
-        <Image source={iconURL}/>
+        <Image source={iconURL} />
       </View>
     </Pressable>
   );
-}
+};
 
 const styles = StyleSheet.create({
   buttonContainer: {
@@ -23,21 +31,21 @@ const styles = StyleSheet.create({
     marginHorizontal: 0,
     height: 40,
     borderBottomWidth: 0,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   buttonContent: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     height: 40,
     borderTopWidth: 1,
-    borderTopColor: 'white',
+    borderTopColor: "white",
   },
   buttonPressed: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     height: 40,
     borderTopWidth: 1,
-    borderTopColor: 'black',
+    borderTopColor: "black",
   },
 });
 

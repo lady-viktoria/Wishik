@@ -1,8 +1,8 @@
-import React from 'react';
-import {SafeAreaView, StyleSheet, TextInput} from 'react-native';
+import React from "react";
+import { SafeAreaView, StyleSheet, TextInput } from "react-native";
 
 const InputEmail = () => {
-  const [email, setEmail] = React.useState('');
+  const [email, setEmail] = React.useState("");
 
   return (
     <SafeAreaView>
@@ -11,7 +11,7 @@ const InputEmail = () => {
         onChangeText={setEmail}
         value={email}
         placeholder="email adress"
-        keyboardType='email-address'
+        keyboardType="email-address"
         // selectTextOnFocus={false}
         // selectionColor={'red'}
         // underlineColorAndroid="transparent"
@@ -23,7 +23,7 @@ const InputEmail = () => {
 const styles = StyleSheet.create({
   input1: {
     borderBottomWidth: 1,
-    borderColor: 'rgba(0, 0, 0, 0.8)',
+    borderColor: "rgba(0, 0, 0, 0.8)",
     padding: 10,
   },
 });
