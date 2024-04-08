@@ -6,11 +6,31 @@ import ButtonNav from "../Components/buttons/ButtonNav";
 import { useRouter } from "expo-router";
 import Back from "../Components/buttons/Back";
 import LineLong from "../Components/LineLong";
+import WishImg from "../Components/NewWish/WishImg";
+import InputText from "../Components/InputText";
+import CheckBox from "../Components/CheckBox";
+import CustomButton from "../Components/buttons/CustomButton";
 
 const linkPic = require("../icons/link.png");
+const userPic = require("../icons/cat.png");
+
+const options = [
+  { label: "Private", value: "option1" },
+  { label: "Friends", value: "option2" },
+  { label: "Public", value: "option3" },
+];
 
 export default function NewWishList() {
   const router = useRouter();
+  const [picURL, setPicURL] = useState<string>("");
+  const [name, setName] = useState<string>("");
+  const [descr, setDescr] = useState<string>("");
+  ////////////////////RADIO BUTTON
+  const [selectedOption, setSelectedOption] = useState<string>("");
+  const handleSelect = (value: string) => {
+    setSelectedOption(value);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -19,6 +39,34 @@ export default function NewWishList() {
         <View style={styles.invisible}></View>
       </View>
       <LineLong style={{ marginLeft: -21, marginRight: -21 }} />
+      <View style={styles.image}>
+        <WishImg onPress={() => setPicURL(userPic)} picURL={picURL} />
+      </View>
+      <View style={styles.fields}>
+        <InputText
+          title="Name"
+          text={name}
+          placeholder={"Enter name"}
+          onTextChanged={setName}
+        />
+        <InputText
+          title="Description"
+          text={descr}
+          placeholder={"Enter description"}
+          onTextChanged={setDescr}
+          numberOfLines={4}
+        />
+        <CheckBox
+          title={"Publication"}
+          options={options}
+          selectedOption={selectedOption}
+          onSelect={handleSelect}
+        />
+        <CustomButton
+          onPress={() => console.log("Кнопка нажата")}
+          text="Create wishlist"
+        />
+      </View>
     </View>
   );
 }

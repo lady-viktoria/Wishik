@@ -12,7 +12,7 @@ const WishImg: FC<PropTypes> = ({ onPress, picURL }) => {
       <View>
         <View style={styles.camera}>
           <Image
-            style={{ maxWidth: 73, maxHeight: 73, borderRadius: "100%" }}
+            style={{ maxWidth: 73, maxHeight: 73, borderRadius: 100 }}
             source={picURL || require("../../icons/camera.png")}
           />
         </View>
