@@ -3,19 +3,18 @@ import { StyleSheet, Text, TextInput, View } from "react-native";
 import type { StatusBarStyle } from "react-native";
 import React, { useState } from "react";
 import ButtonNav from "../Components/buttons/ButtonNav";
-import { Link } from "expo-router";
+import { useRouter } from "expo-router";
 import Back from "../Components/buttons/Back";
 import LineLong from "../Components/LineLong";
 
 const linkPic = require("../icons/link.png");
 
 export default function NewWishList() {
+  const router = useRouter();
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Link href="/main" asChild>
-          <Back onPress={() => {}} text="Back" />
-        </Link>
+        <Back onPress={() => router.back()} text="Back" />
         <View style={styles.title}>New wishlist</View>
         <View style={styles.invisible}></View>
       </View>

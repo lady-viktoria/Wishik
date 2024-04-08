@@ -34,9 +34,15 @@ const SelectBox: FC<PropTypes> = ({
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
       <TouchableOpacity onPress={() => setIsVisible(!isVisible)}>
-        <Text style={styles.selectedOption}>
-          {selectedOption || "Choose wishlist"}
-        </Text>
+        <View style={styles.select}>
+          <Text style={styles.selectedOption}>
+            {selectedOption || "Choose wishlist"}
+          </Text>
+          <Image
+            style={styles.img}
+            source={require("../icons/drop-down.png")}
+          />
+        </View>
       </TouchableOpacity>
       {isVisible && (
         <View style={styles.optionsContainer}>
@@ -75,11 +81,16 @@ const styles = StyleSheet.create({
     letterSpacing: 0,
     textAlign: "left",
   },
-  selectedOption: {
+  select: {
     padding: 18,
     backgroundColor: "rgba(229, 229, 229, 1)",
     borderRadius: 6,
     display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  img: {},
+  selectedOption: {
     fontFamily: "Comfortaa",
     fontSize: 16,
     fontWeight: "400",

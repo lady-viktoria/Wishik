@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 import type { StatusBarStyle } from "react-native";
 import React, { useState } from "react";
 import ButtonNav from "../Components/buttons/ButtonNav";
@@ -20,12 +20,14 @@ export default function Main() {
   };
   return (
     <View style={styles.container}>
-      <View>
-        {activeButton === "home" ? <Home /> : null}
-        {activeButton === "search" ? <View> Search </View> : null}
-        {activeButton === "comment" ? <View> comment </View> : null}
-        {activeButton === "person" ? <View> person </View> : null}
-      </View>
+      <ScrollView>
+        <View>
+          {activeButton === "home" ? <Home /> : null}
+          {activeButton === "search" ? <Text> Search </Text> : null}
+          {activeButton === "comment" ? <Text> comment </Text> : null}
+          {activeButton === "person" ? <Text> person </Text> : null}
+        </View>
+      </ScrollView>
       <View style={styles.footer}>
         <View style={styles.navigation}>
           <ButtonNav

@@ -1,28 +1,28 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import Owners from "../Components/Owners";
 import LineLong from "../Components/LineLong";
 
-export default function LogIn() {
+export default function Home() {
   return (
     <View style={styles.container}>
       <StatusBar hidden={false} />
-      <View style={styles.title}>Wishlist</View>
+      <Text style={styles.title}>Wishlist</Text>
       <Owners />
       <LineLong style={{ marginTop: 27, marginLeft: -21, marginRight: -21 }} />
-      <View style={styles.text}>
+      <Text style={styles.text}>
         Add a wish by clicking the "+" button below
-      </View>
+      </Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    display: "flex",
     paddingHorizontal: 21,
     flexDirection: "column",
-    flex: 1,
     backgroundColor: "#fff",
     justifyContent: "center",
   },

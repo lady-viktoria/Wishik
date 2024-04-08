@@ -3,14 +3,18 @@ import { Text, View, Image, StyleSheet, Pressable } from "react-native";
 
 interface PropTypes {
   onPress: () => void;
+  picURL?: string;
 }
 
-const WishImg: FC<PropTypes> = ({ onPress }) => {
+const WishImg: FC<PropTypes> = ({ onPress, picURL }) => {
   return (
     <Pressable onPress={onPress} style={styles.buttonContainer}>
       <View>
         <View style={styles.camera}>
-          <Image source={require("../../icons/camera.png")} />
+          <Image
+            style={{ maxWidth: 73, maxHeight: 73, borderRadius: "100%" }}
+            source={picURL || require("../../icons/camera.png")}
+          />
         </View>
         <View style={styles.whiteCircle}>
           <View style={styles.blackCircle}>
