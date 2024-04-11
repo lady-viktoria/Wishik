@@ -1,7 +1,7 @@
 interface UserDb {
   id: string;
-  firstName: string;
-  lastName: string;
+  firstName: string | null;
+  lastName: string | null;
   email: string;
   createdTs: number;
   updatedTs: number;
