@@ -106,3 +106,4 @@ const styles = StyleSheet.create({
     gap: 30,
   },
 });
+export default EditWishList;
