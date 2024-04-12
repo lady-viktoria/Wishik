@@ -1,70 +1,49 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TextInput, View } from "react-native";
 import type { StatusBarStyle } from "react-native";
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
+import ButtonNav from "../Components/buttons/ButtonNav";
 import { useRouter } from "expo-router";
 import Back from "../Components/buttons/Back";
 import LineLong from "../Components/LineLong";
 import WishImg from "../Components/NewWish/WishImg";
 import InputText from "../Components/InputText";
 import CheckBox from "../Components/CheckBox";
-import SelectBox from "../Components/SelectBox";
 import CustomButton from "../Components/buttons/CustomButton";
 
 const linkPic = require("../icons/link.png");
 const userPic = require("../icons/cat.png");
-// const userPic =
-//   "https://img.freepik.com/free-photo/the-adorable-illustration-of-kittens-playing-in-the-forest-generative-ai_260559-483.jpg?size=338&ext=jpg&ga=GA1.1.1908636980.1711497600&semt=ais";
 
 const options = [
   { label: "Private", value: "option1" },
   { label: "Friends", value: "option2" },
   { label: "Public", value: "option3" },
 ];
-const selections = [
-  { label: "День Рождения", value: "День Рождения" },
-  { label: "Новый Год", value: "Новый Год" },
-  { label: "8 Марта", value: "8марта" },
-];
-
-export default function NewWish() {
+interface PropTypes {
+  wishList?: WishListDb;
+  onSave: () => void;
+}
+const EditWishList: FC<PropTypes> = ({ wishList, onSave }) => {
   const router = useRouter();
+  const [picURL, setPicURL] = useState<string>("");
+  const [name, setName] = useState<string>("");
+  const [descr, setDescr] = useState<string>("");
   ////////////////////RADIO BUTTON
   const [selectedOption, setSelectedOption] = useState<string>("");
   const handleSelect = (value: string) => {
     setSelectedOption(value);
   };
-  ///////////////////SELECTBOX
-  const [selectedWish, setSelectedWish] = useState("");
-  const handleWishSelect = (wish: string) => {
-    setSelectedWish(wish);
-  };
 
-  const [activeButton, setActiveButton] = useState<string>("home");
-  const handleButtonPress = (buttonId: string) => {
-    setActiveButton(buttonId);
-  };
-  const [name, setName] = useState<string>("");
-  const [descr, setDescr] = useState<string>("");
-  const [link, setLink] = useState<string>("");
-  const [picURL, setPicURL] = useState<string>("");
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Back onPress={() => router.back()} text="Back" />
-        <Text style={styles.title}>New wish</Text>
+        <View style={styles.title}>New wishlist</View>
         <View style={styles.invisible}></View>
       </View>
       <LineLong style={{ marginLeft: -21, marginRight: -21 }} />
       <View style={styles.image}>
-        <WishImg
-          // onPress={function (): void {
-          //   setPicURL(userPic);
-          // }}
-          // picURL={picURL}
-          onPress={() => setPicURL(userPic)}
-          picURL={picURL}
-        />
+        <WishImg onPress={() => setPicURL(userPic)} picURL={picURL} />
       </View>
       <View style={styles.fields}>
         <InputText
@@ -80,34 +59,17 @@ export default function NewWish() {
           onTextChanged={setDescr}
           numberOfLines={4}
         />
-        <InputText
-          iconURL={linkPic}
-          title="Link"
-          text={link}
-          placeholder={"Enter link"}
-          onTextChanged={setLink}
-        />
         <CheckBox
           title={"Publication"}
           options={options}
           selectedOption={selectedOption}
           onSelect={handleSelect}
         />
-        <SelectBox
-          title={"Wishlist"}
-          options={selections}
-          selectedOption={selectedWish}
-          onSelect={handleWishSelect}
-          additionalItem={"Add wishlist"}
-        />
-        <CustomButton
-          onPress={() => console.log("Кнопка нажата")}
-          text="Save"
-        />
+        <CustomButton onPress={onSave} text="Create wishlist" />
       </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

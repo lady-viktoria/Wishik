@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
-import NewWishList from "../screens/NewWishList";
+import NewWishList from "../screens/EditWishList";
 import { Link } from "expo-router";
 
 interface Option {
@@ -54,7 +54,7 @@ const SelectBox: FC<PropTypes> = ({
               <Text style={styles.option}>{option.label}</Text>
             </TouchableOpacity>
           ))}
-          <Link href="/newWishList" asChild>
+          <Link href="/editWishList" asChild>
             <View style={styles.additionalItem}>
               <View style={styles.blackCircle}>
                 <Image source={linkPlus} style={styles.icon} />

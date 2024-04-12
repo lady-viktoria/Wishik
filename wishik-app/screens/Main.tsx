@@ -40,7 +40,7 @@ export default function Main() {
             iconURL={searchPic}
             active={activeButton === "search"}
           />
-          <Link href="/newWish" asChild>
+          <Link href="/editWish" asChild>
             <Add
               onPress={() => {}}
               iconURL={plusPic}
