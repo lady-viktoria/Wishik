@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import type { StatusBarStyle } from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
+// import type { StatusBarStyle } from "react-native";
 import React, { FC, useState } from "react";
 import { useRouter } from "expo-router";
 import Back from "../Components/buttons/Back";
@@ -60,58 +60,63 @@ const EditWish: FC<PropTypes> = ({ wish, onSave }) => {
         <View style={styles.invisible}></View>
       </View>
       <LineLong style={{ marginLeft: -21, marginRight: -21 }} />
-      <View style={styles.image}>
-        <WishImg
-          // onPress={function (): void {
-          //   setPicURL(userPic);
-          // }}
-          // picURL={picURL}
-          onPress={() => setPicURL(userPic)}
-          picURL={picURL}
-        />
-      </View>
-      <View style={styles.fields}>
-        <InputText
-          title="Name"
-          text={name}
-          placeholder={"Enter name"}
-          onTextChanged={setName}
-        />
-        <InputText
-          title="Description"
-          text={descr}
-          placeholder={"Enter description"}
-          onTextChanged={setDescr}
-          numberOfLines={4}
-        />
-        <InputText
-          iconURL={linkPic}
-          title="Link"
-          text={link}
-          placeholder={"Enter link"}
-          onTextChanged={setLink}
-        />
-        <CheckBox
-          title={"Publication"}
-          options={options}
-          selectedOption={selectedOption}
-          onSelect={handleSelect}
-        />
-        <SelectBox
-          title={"Wishlist"}
-          options={selections}
-          selectedOption={selectedWish}
-          onSelect={handleWishSelect}
-          additionalItem={"Add wishlist"}
-        />
-        <CustomButton onPress={onSave} text="Save" />
-      </View>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles.scroolHeight}>
+          <View style={styles.image}>
+            <WishImg
+              // onPress={function (): void {
+              //   setPicURL(userPic);
+              // }}
+              // picURL={picURL}
+              onPress={() => setPicURL(userPic)}
+              picURL={picURL}
+            />
+          </View>
+          <View style={styles.fields}>
+            <InputText
+              title="Name"
+              text={name}
+              placeholder={"Enter name"}
+              onTextChanged={setName}
+            />
+            <InputText
+              title="Description"
+              text={descr}
+              placeholder={"Enter description"}
+              onTextChanged={setDescr}
+              numberOfLines={4}
+            />
+            <InputText
+              iconURL={linkPic}
+              title="Link"
+              text={link}
+              placeholder={"Enter link"}
+              onTextChanged={setLink}
+            />
+            <CheckBox
+              title={"Publication"}
+              options={options}
+              selectedOption={selectedOption}
+              onSelect={handleSelect}
+            />
+            <SelectBox
+              title={"Wishlist"}
+              options={selections}
+              selectedOption={selectedWish}
+              onSelect={handleWishSelect}
+              additionalItem={"Add wishlist"}
+            />
+            <CustomButton onPress={onSave} text="Save" />
+          </View>
+        </View>
+      </ScrollView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     paddingHorizontal: 21,
   },
   header: {
@@ -133,6 +138,9 @@ const styles = StyleSheet.create({
   },
   invisible: {
     width: 40,
+  },
+  scroolHeight: {
+    flex: 1,
   },
   image: {
     marginTop: 22,

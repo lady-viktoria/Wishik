@@ -6,6 +6,8 @@ import LineLong from "../Components/LineLong";
 import WishItem from "../Components/WishList";
 import WishList from "../Components/WishList";
 import Back from "../Components/buttons/Back";
+import Edit from "../Components/buttons/Edit";
+import EditWishList from "./EditWishList";
 
 const userId = "mgffxrdesxjcfrset";
 const ts = Date.now();
@@ -129,7 +131,8 @@ export default function Home() {
                     return <Text>{w.name}</Text>;
                   })}
               </Text>
-              <View style={styles.invisible}></View>
+              <Edit onPress={() => {}} text="Edit" />
+              {/* <View style={styles.invisible}></View> */}
             </View>
             <Text>список вишев из какого-то определённого вишЛиста</Text>
             {wishes

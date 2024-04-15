@@ -1,8 +1,8 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { StyleSheet, Text, TextInput, View, ScrollView } from "react-native";
 import type { StatusBarStyle } from "react-native";
 import React, { FC, useState } from "react";
-import ButtonNav from "../Components/buttons/ButtonNav";
+// import ButtonNav from "../Components/buttons/ButtonNav";
 import { useRouter } from "expo-router";
 import Back from "../Components/buttons/Back";
 import LineLong from "../Components/LineLong";
@@ -42,6 +42,7 @@ const EditWishList: FC<PropTypes> = ({ wishList, onSave }) => {
         <View style={styles.invisible}></View>
       </View>
       <LineLong style={{ marginLeft: -21, marginRight: -21 }} />
+      {/* <ScrollView> */}
       <View style={styles.image}>
         <WishImg onPress={() => setPicURL(userPic)} picURL={picURL} />
       </View>
@@ -67,6 +68,7 @@ const EditWishList: FC<PropTypes> = ({ wishList, onSave }) => {
         />
         <CustomButton onPress={onSave} text="Create wishlist" />
       </View>
+      {/* </ScrollView> */}
     </View>
   );
 };
