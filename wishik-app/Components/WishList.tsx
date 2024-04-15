@@ -11,7 +11,7 @@ import {
 interface PropTypes {
   onPress: () => void;
   name: any;
-  picURL?: any | ImageSourcePropType;
+  picURL?: string;
 }
 
 const WishList: FC<PropTypes> = ({ name, picURL, onPress }) => {
@@ -19,7 +19,8 @@ const WishList: FC<PropTypes> = ({ name, picURL, onPress }) => {
     <Pressable onPress={onPress}>
       <View style={styles.container}>
         <Text style={styles.name}>{name}</Text>
-        <Image source={picURL} style={styles.picture} />
+        <Image source={{ uri: picURL }} style={styles.picture} />
+        {/* <Image source={picURL} style={styles.picture} /> */}
       </View>
     </Pressable>
   );
